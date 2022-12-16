@@ -1,5 +1,6 @@
 import { Component } from 'react'; // Used for class component
-import { useState } from 'react'; // Used for functional component
+import { useEffect ,useState } from 'react'; // Used for functional component
+
 import logo from './logo.svg';
 import CardList from './components/card-list/card-list.component';
 import SearchBox from './components/search-box/search-box.component';
@@ -7,13 +8,17 @@ import './App.css';
 
 
 // Functional component
+// ?Every time the state changes, the component re-renders, runs all code
+// ?In a class component, only the render method runs when the state changes
 const App = () => {
+  // First element is the state, second is the function to update the state
+  // useState() returns an array with two elements
+  const [searchField, setSearchField] = useState(''); 
+  const [monsters, setMonsters] = useState([]);
 
   const onSearchChange = (event) => {
-    const searchField = event.target.value.toLocaleLowerCase()
-    this.setState(() => {
-      return { searchField };
-    });
+    const searchFieldString = event.target.value.toLocaleLowerCase()
+    setSearchField(searchFieldString);
   }
   return (
     <div className="App">
