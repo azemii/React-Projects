@@ -16,7 +16,6 @@ const App = () => {
   const [searchField, setSearchField] = useState(''); 
   const [monsters, setMonsters] = useState([]);
   const [filteredMonsters, setFilterMonsters] = useState(monsters);
-  console.log('render from app');
 
   // useEffect() is a hook that runs after every render
   // The second argument is an array of dependencies that will trigger the hook to run if they change
